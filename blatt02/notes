@@ -1,0 +1,54 @@
+1.1
+
+Zeiger auf siebtes Element
+Zeiger auf erstes Element
+Zeiger auf erstes Element
+=> äquivalent
+
+1.2
+
+Erste Zeile äquivalent zur Zweiten (das '+8' entspricht einem '+8*4')
+Vierte Zeile äquivalent zur Fünften (aber wieder nur weil pi ein int* ist! Problem wäre, wenn i ein integer oder
+void pointer wäre)
+Problem: Nur 10 ints allokiert, Schreiben an eine beliebige Adresse im Speicher
+Nein, weil der Compiler weiß wie viele bytes er weitergehen muss
+
+sizeOf: abhängig von Architektur gibt mir das den richtigen Wert
+Cast: *nicht* nötig, gibt aber etwas sicherheit: char *a = (int *) b; funktioniert nicht
+Es gibt keinen GC, deswegen muss man auf dem Heap Speicher freimachen
+Malloc und free funktioniert über libc, dadurch weiß das Programm dann auch wie viele Bytes es 'freen' muss
+
+1.3
+
+Korrekt
+Korrekt, erhöht den Pointer um sizeof(int)
+
+lvalue = rvalue
+a      = 3
+
+Arrays sind nie lvalues => Statement 3 und 4 funktionieren nicht.
+
+Variablen werden nicht initialisiert => der Pointer wird selten zu NULL zeigen, sondern zu dem Wert der vorher
+auf dem Stack war (Stack Pointer wird nur inkrementiert, der Stack wird nicht auf NULL gesetzt)
+
+1.4
+
+Google => C gibberish
+Pointer auf array von 10 Elementen
+Array von 10 Intpointern (entspricht: int* (arrayABC[10]))
+Dasselbe wie das Statement darüber (Array von 10 Intpointern)
+
+1.5
+
+Oben: Heap, Unten: Stack
+Problem beim oberen: Oberste 'Array-Stufe' wird auf dem Stack allokiert => verschwindet z.B. bei einem return
+Unterarrays können unterschiedliche Größen haben
+Oben: Größe im Nachhinein änderbar
+
+2
+
+fopen: Gibt Stream zurück, der wieder geschlossen werden muss
+fflush: flushed den buffer des Streams
+scanf: printf in anderer Richtung
+strncmp: maximal n oder bis zum ersten '\0'
+system: führt einen shell Befehl aus
