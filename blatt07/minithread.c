@@ -16,7 +16,7 @@ int main(void) {
     int ret;
 
     for (i = 0; i < 5; ++i) {
-        ret = pthread_create(&tid[i], NULL, thread_func, (void *) names[4 - i]);
+        ret = pthread_create(&tid[i], NULL, thread_func, (void *) names[4 - i]); //writes thread id to tid[i]
         if (ret != 0) {
             printf("Could not create thread. Exiting.");
             exit(1);
